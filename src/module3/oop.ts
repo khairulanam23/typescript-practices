@@ -263,8 +263,57 @@
   getShapeArea(shape3);
 }
 
-
 {
-    //abstraction
-    
+  //abstraction
+  //1. Interface
+  //2. Abstract
+
+  //Idea
+  interface Vehicle1 {
+    startEngine(): void;
+    stopEngine(): void;
+    move(): void;
+  }
+
+  //real implementation
+  class Car1 implements Vehicle1 {
+    startEngine(): void {
+      console.log("I am starting the car engine");
+    }
+    stopEngine(): void {
+      console.log("I am stopping the car engine");
+    }
+    move(): void {
+      console.log("I am moving the car");
+    }
+    test() {
+      console.log("I am testing");
+    }
+  }
+
+  const toyotaCar = new Car1();
+  toyotaCar.startEngine();
+
+  abstract class Car2 {
+    abstract startEngine(): void;
+    abstract stopEngine(): void;
+    abstract move(): void;
+    test() {
+      console.log("I am testing");
+    }
+  }
+
+  //const hondaCar = new Car2(); //Cannot create an instance of an abstract class.
+  class toyotaCar2 extends Car2 {
+    startEngine(): void {
+      console.log("I am starting the car engine");
+    }
+    stopEngine(): void {
+      console.log("I am stopping the car engine");
+    }
+    move(): void {
+      console.log("I am moving the car");
+    }
+  }
+  const hondaCar = new toyotaCar2();
 }
